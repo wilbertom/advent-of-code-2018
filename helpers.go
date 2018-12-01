@@ -3,6 +3,7 @@ package aoc2018
 import (
 	"errors"
 	"io/ioutil"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -45,6 +46,7 @@ func Contains(collection []int64, element int64) bool {
 
 func exitIfError(e error) {
 	if e != nil {
+		log.Fatal(e)
 		os.Exit(20)
 	}
 }
