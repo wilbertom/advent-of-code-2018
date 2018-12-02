@@ -31,7 +31,19 @@ func FirstArgContents() ([]byte, error) {
 func FirstArgLines() []string {
 	contents, err := FirstArgContents()
 	exitIfError(err)
-	return strings.Split(string(contents), "\n")
+
+  all_lines := strings.Split(string(contents), "\n")
+  lines := make([]string, 0)
+
+  for _, line := range all_lines {
+    if Blank(line) {
+      continue
+    }
+
+    lines = append(lines, line)
+  }
+
+	return lines
 }
 
 func Contains(collection []int64, element int64) bool {
