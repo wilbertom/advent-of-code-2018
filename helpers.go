@@ -56,6 +56,26 @@ func Contains(collection []int64, element int64) bool {
 	return false
 }
 
+func ContainsValue(collection map[rune]int, value int) (bool) {
+  for _, element := range collection {
+    if element == value {
+      return true
+    }
+  }
+
+  return false
+}
+
+func LetterCount(word string) (map[rune]int) {
+  letter_counts := make(map[rune]int)
+
+  for _, letter := range word {
+    letter_counts[letter]++
+  }
+
+  return letter_counts
+}
+
 func exitIfError(e error) {
 	if e != nil {
 		log.Fatal(e)
