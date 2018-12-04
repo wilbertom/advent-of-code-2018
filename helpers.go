@@ -32,16 +32,16 @@ func FirstArgLines() []string {
 	contents, err := FirstArgContents()
 	exitIfError(err)
 
-  all_lines := strings.Split(string(contents), "\n")
-  lines := make([]string, 0)
+	all_lines := strings.Split(string(contents), "\n")
+	lines := make([]string, 0)
 
-  for _, line := range all_lines {
-    if Blank(line) {
-      continue
-    }
+	for _, line := range all_lines {
+		if Blank(line) {
+			continue
+		}
 
-    lines = append(lines, line)
-  }
+		lines = append(lines, line)
+	}
 
 	return lines
 }
@@ -56,24 +56,24 @@ func Contains(collection []int64, element int64) bool {
 	return false
 }
 
-func ContainsValue(collection map[rune]int, value int) (bool) {
-  for _, element := range collection {
-    if element == value {
-      return true
-    }
-  }
+func ContainsValue(collection map[rune]int, value int) bool {
+	for _, element := range collection {
+		if element == value {
+			return true
+		}
+	}
 
-  return false
+	return false
 }
 
-func LetterCount(word string) (map[rune]int) {
-  letter_counts := make(map[rune]int)
+func LetterCount(word string) map[rune]int {
+	letter_counts := make(map[rune]int)
 
-  for _, letter := range word {
-    letter_counts[letter]++
-  }
+	for _, letter := range word {
+		letter_counts[letter]++
+	}
 
-  return letter_counts
+	return letter_counts
 }
 
 func exitIfError(e error) {
