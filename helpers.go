@@ -15,7 +15,7 @@ func Blank(s string) bool {
 
 func ParseInt(s string) int64 {
 	n, err := strconv.ParseInt(s, 10, 64)
-	exitIfError(err)
+	ExitIfError(err)
 	return n
 }
 
@@ -30,7 +30,7 @@ func FirstArgContents() ([]byte, error) {
 
 func FirstArgLines() []string {
 	contents, err := FirstArgContents()
-	exitIfError(err)
+	ExitIfError(err)
 
 	all_lines := strings.Split(string(contents), "\n")
 	lines := make([]string, 0)
@@ -76,7 +76,7 @@ func LetterCount(word string) map[rune]int {
 	return letter_counts
 }
 
-func exitIfError(e error) {
+func ExitIfError(e error) {
 	if e != nil {
 		log.Fatal(e)
 		os.Exit(20)
