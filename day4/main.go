@@ -116,10 +116,12 @@ func LoadGuards(shiftLines *[]*ShiftLine) *map[int]*Guard {
 
 	for _, line := range *shiftLines {
 		if line.startsShift {
-			if guard = guards[line.guardID]; guard == nil {
+			if _, ok := guards[line.guardID]; !ok {
 				guards[line.guardID] = NewGuard(line.guardID)
-				guard = guards[line.guardID]
 			}
+
+			guard = guards[line.guardID]
+
 		} else if line.fallsAsleep {
 			startSleepMinute = line.timestamp.Minute()
 		} else if line.wakesUp {
