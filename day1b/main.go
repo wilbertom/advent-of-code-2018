@@ -14,7 +14,7 @@ func main() {
 
 	for {
 		for _, line := range lines {
-			frequency_delta := aoc2018.ParseInt(line)
+			frequency_delta := aoc2018.ParseInt64(line)
 			frequency += frequency_delta
 
 			if frequencies[frequency] {

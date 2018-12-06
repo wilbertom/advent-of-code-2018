@@ -10,7 +10,7 @@ func main() {
 	lines := aoc2018.FirstArgLines()
 
 	for _, line := range lines {
-		frequency_delta := aoc2018.ParseInt(line)
+		frequency_delta := aoc2018.ParseInt64(line)
 		frequency += frequency_delta
 	}
 

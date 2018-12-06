@@ -13,10 +13,16 @@ func Blank(s string) bool {
 	return strings.TrimSpace(s) == ""
 }
 
-func ParseInt(s string) int64 {
+func ParseInt64(s string) int64 {
 	n, err := strconv.ParseInt(s, 10, 64)
 	ExitIfError(err)
 	return n
+}
+
+func ParseInt(s string) int {
+	n, err := strconv.ParseInt(s, 10, 64)
+	ExitIfError(err)
+	return int(n)
 }
 
 func FirstArgContents() ([]byte, error) {
