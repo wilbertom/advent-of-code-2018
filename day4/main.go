@@ -2,10 +2,10 @@ package main
 
 import (
 	"aoc2018"
-	"time"
 	"fmt"
 	"sort"
 	"strings"
+	"time"
 )
 
 type ShiftLine struct {
@@ -164,16 +164,14 @@ func mostFrequentlySleepingGuard(guards *map[int]*Guard) *Guard {
 
 func main() {
 	lines := aoc2018.FirstArgLines()
+	sort.Strings(lines)
+
 	shiftLines := make([]*ShiftLine, len(lines))
 	shiftsParser := NewShiftsParser()
 
 	for i := range lines {
 		shiftLines[i] = shiftsParser.Parse(&lines[i])
 	}
-
-	sort.Slice(shiftLines, func(i, j int) bool {
-		return shiftLines[i].timestamp.Before(shiftLines[j].timestamp)
-	})
 
 	guards := LoadGuards(&shiftLines)
 	sleepiestGuard := mostSleepyGuard(guards)
